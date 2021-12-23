@@ -2,13 +2,14 @@ from discord import Game
 from discord.ext import commands, tasks
 from modules.free_games import FreeGames
 from config.config import ConfigTool
+from json import load
+from os.path import dirname
 
-token = ""
+token = load(open(dirname(__file__)+"\\config\\token.json"))["token"]
 
 client = commands.Bot(command_prefix='.')
 ConfigFunc = ConfigTool()
 
-#test
 
 @client.event
 async def on_ready():
