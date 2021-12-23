@@ -3,7 +3,7 @@ from discord.ext import commands, tasks
 from modules.free_games import FreeGames
 from config.config import ConfigTool
 
-token = "ODQ4ODc0NTcxNTc0NDExMjg0.YLS-DQ.7YRa-pZnZJr9kkuq3IkfczGwBGU"
+token = ""
 
 client = commands.Bot(command_prefix='.')
 ConfigFunc = ConfigTool()
