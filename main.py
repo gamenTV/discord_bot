@@ -8,6 +8,7 @@ token = ""
 client = commands.Bot(command_prefix='.')
 ConfigFunc = ConfigTool()
 
+#test
 
 @client.event
 async def on_ready():
