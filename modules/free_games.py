@@ -33,7 +33,7 @@ class FreeGames:
                         delete.append(game)
             elif (json_game["message_id"] is None) and (json_game["start"] < time):
                 message = await self.send_game_msg(game, json_game["expires"],
-                                                   json_game["link"], json_game["price"])
+                                                   json_game["link"], json_game["price"], json_game["color"])
                 json_game["message_id"] = message.id
 
         for game in delete:
@@ -43,17 +43,16 @@ class FreeGames:
 
         await self.client.change_presence(activity=Game('Idling!'))
 
-    async def func_create_game(self, titel, start, expires, link, price):
+    async def func_create_game(self, titel, start, expires, link, price, color):
         if datetime.strptime(expires, "%d.%m.%Y %H:%M"):
-            self.json_data[titel] = {"start": start, "expires": expires, "link": link, "price": price, "message_id": None}
+            self.json_data[titel] = {"start": start, "expires": expires, "link": link, "price": price, "message_id": None, "color": color}
             dump(self.json_data, open(self.json_path, "w"))
 
-    async def send_game_msg(self, titel, expires, link, price):
-        embed = Embed(title=titel, description='Endet: '+expires, color=self.embed_colour) #ToDo: int(self.embed_colour, 16))
-        embed.add_field(name="Link", value=f"||{link}||", inline=False)
-        embed.add_field(name="Preis", value=f"~~{price}~~€", inline=False)
-        embed.add_field(name="Gamen", value=f"Stinkt nach AA lol :)", inline=True)
-        embed.set_footer(icon_url="https://i.imgur.com/uZIlRnK.png")
+    async def send_game_msg(self, titel, expires, link, price, color):
+        embed = Embed(title=titel, description='Expires **'+expires+"** Uhr", color=int(color, 16)) #ToDo: int(self.embed_colour, 16))
+        embed.add_field(name="**Link**", value=f"**||{link}||**", inline=False)
+        embed.add_field(name="**Price**", value=f"**~~{price}~~€**", inline=False)
+        embed.set_footer(text="Free Games everytime i post :)", icon_url="https://i.imgur.com/uZIlRnK.png")
 
         message = await self.channel.send(f"<@&{self.role}>", embed=embed)
 

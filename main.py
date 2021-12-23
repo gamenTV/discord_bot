@@ -31,8 +31,8 @@ async def setting(ctx, cat, conf_name, value):
 
 
 @client.command()
-async def new_game(ctx, titel, start, expires, link, price):
-    await FreeGamesFunc.func_create_game(titel, start, expires, link, price)
+async def new_game(ctx, titel, start, expires, link, price, color):
+    await FreeGamesFunc.func_create_game(titel, start, expires, link, price, color)
     await ctx.message.delete()
 
 

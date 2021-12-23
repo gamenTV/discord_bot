@@ -4,5 +4,12 @@
     "free_games_role": 922101074406559815,
     "free_games_poster_role": 923382010490282025,
     "embed_color": 7548478
+  },
+  "embed_colors": {
+    "light_blue": 5551315,
+    "dark_red": 7548478,
+    "light_red": 15754587,
+    "orange": 16744456,
+    "light_green": 4563527
   }
 }
