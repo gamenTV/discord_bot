@@ -52,7 +52,7 @@ class FreeGames:
         embed = Embed(title=titel, description='Endet: '+expires, color=self.embed_colour) #ToDo: int(self.embed_colour, 16))
         embed.add_field(name="Link", value=f"||{link}||", inline=False)
         embed.add_field(name="Preis", value=f"~~{price}~~€", inline=False)
-        embed.add_field(name="Gamen", value=f"Stinkt nach AA lol", inline=True)
+        embed.add_field(name="Gamen", value=f"Stinkt nach AA lol :)", inline=True)
         embed.set_footer(icon_url="https://i.imgur.com/uZIlRnK.png")
 
         message = await self.channel.send(f"<@&{self.role}>", embed=embed)
