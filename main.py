@@ -4,32 +4,29 @@ from modules.free_games import FreeGames
 from config.config import ConfigTool
 from json import load
 from os.path import dirname
+from discord_components import ComponentsBot
 
 token = load(open(dirname(__file__) + "\\config\\token.json"))["token"]
 
-client = commands.Bot(command_prefix='.')
-ConfigFunc = ConfigTool()
+client = ComponentsBot(command_prefix='.')
+ConfigFunc = ConfigTool(client)
 
 
 @client.event
 async def on_ready():
     await client.change_presence(activity=Game(""))
-    free_role = await ConfigFunc.get_config("free_games", "free_games_role")
+    free_config = await ConfigFunc.get_config("free_games")
 
     global FreeGamesFunc
-    FreeGamesFunc = FreeGames(client, await ConfigFunc.reload_channel(client),
-                              free_role["value"],
-                              await ConfigFunc.get_config("free_games", "embed_color"))
+    FreeGamesFunc = FreeGames(client, await ConfigFunc.reload_channel(),
+                              free_config["free_games_role"]["value"],
+                              free_config["embed_color"])
     check_for_expired.start()
 
 
 @client.command()
-async def setting(ctx, cat, conf_name, value):
-    reload = ConfigFunc.change_config(ctx, cat, conf_name, value)
-    if conf_name == "free_games_channel":
-        global FreeGamesFunc
-        FreeGamesFunc(client, reload) #ToDo: Suche nach möglichkeit Configuration neu zu laden
-                                      # !!!ohne einzelnd zu Definieren!!!
+async def setting(ctx):
+    await ConfigFunc.change_setting(ctx)
 
 
 @client.command()
@@ -41,5 +38,5 @@ async def new_game(ctx, titel, start, expires, link, price, color):
 @tasks.loop(minutes=5.0)
 async def check_for_expired():
     await FreeGamesFunc.func_check_games()
-    
+
 client.run(token)
