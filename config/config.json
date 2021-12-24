@@ -15,7 +15,11 @@
       "value": 923382010490282025,
       "description": "Choose a Role which is allowed to post new Free Game"
     },
-    "embed_color": 7548478
+    "embed_color": {
+      "label": "Standard embed Color",
+      "value": 7548478,
+      "description": "Choose the standard embed color"
+    }
   },
   "embed_colors": {
     "light_blue": 5551315,
