@@ -5,7 +5,7 @@ from config.config import ConfigTool
 from json import load
 from os.path import dirname
 
-token = load(open(dirname(__file__)+"\\config\\token.json"))["token"]
+token = load(open(dirname(__file__) + "\\config\\token.json"))["token"]
 
 client = commands.Bot(command_prefix='.')
 ConfigFunc = ConfigTool()
@@ -14,9 +14,11 @@ ConfigFunc = ConfigTool()
 @client.event
 async def on_ready():
     await client.change_presence(activity=Game(""))
+    free_role = await ConfigFunc.get_config("free_games", "free_games_role")
+
     global FreeGamesFunc
     FreeGamesFunc = FreeGames(client, await ConfigFunc.reload_channel(client),
-                              await ConfigFunc.get_config("free_games", "free_games_role"),
+                              free_role["value"],
                               await ConfigFunc.get_config("free_games", "embed_color"))
     check_for_expired.start()
 
