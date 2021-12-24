@@ -31,10 +31,15 @@ async def setting(ctx, cat, conf_name, value):
 
 
 @client.command()
-async def new_game(ctx, titel, start, expires, link, price, color):
-    await FreeGamesFunc.func_create_game(titel, start, expires, link, price, color)
+async def new_game(ctx, titel, start, expires, link, price, id, color):
+    await FreeGamesFunc.func_create_game(titel, start, expires, link, price, id, color)
     await ctx.message.delete()
 
+
+@client.command()
+async def new_game_pn(ctx, game_id):
+    await FreeGamesFunc.send_private_msg(ctx.message.author.id, game_id)
+    await ctx.message.delete()
 
 @tasks.loop(minutes=5.0)
 async def check_for_expired():
