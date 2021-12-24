@@ -14,7 +14,7 @@ class ConfigTool:
             return self.reload_channel(ctx)
 
     async def reload_channel(self, client):
-        return client.get_channel(self.config["free_games"]["free_games_channel"])
+        return client.get_channel(self.config["free_games"]["free_games_channel"]["value"])
 
     async def get_config(self, cat, conf_name):
         return self.config[cat][conf_name]
