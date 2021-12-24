@@ -1,8 +1,20 @@
 {
   "free_games": {
-    "free_games_channel": 901120398047993929,
-    "free_games_role": 922101074406559815,
-    "free_games_poster_role": 923382010490282025,
+    "free_games_channel": {
+      "label": "Free Games Channel",
+      "value": 901120398047993929,
+      "description": "Choose a channel where the free games will be posted"
+    },
+    "free_games_role": {
+      "label": "Free Games Role",
+      "value": 922101074406559815,
+      "description": "Choose a role which will be pinged on new free game posts"
+    },
+    "free_games_poster_role": {
+      "label": "Free Games Poster",
+      "value": 923382010490282025,
+      "description": "Choose a Role which is allowed to post new Free Game"
+    },
     "embed_color": 7548478
   },
   "embed_colors": {
