@@ -1,24 +1,28 @@
 {
   "free_games": {
-    "free_games_channel": {
-      "label": "Free Games Channel",
-      "value": 901120398047993929,
-      "description": "Choose a channel where the free games will be posted"
-    },
-    "free_games_role": {
-      "label": "Free Games Role",
-      "value": 922101074406559815,
-      "description": "Choose a role which will be pinged on new free game posts"
-    },
-    "free_games_poster_role": {
-      "label": "Free Games Poster",
-      "value": 923382010490282025,
-      "description": "Choose a Role which is allowed to post new Free Game"
-    },
-    "embed_color": {
-      "label": "Standard embed Color",
-      "value": 7548478,
-      "description": "Choose the standard embed color"
+    "label": "Free Games Config",
+    "description": "Change something for Free Games",
+    "value": {
+      "free_games_channel": {
+        "label": "Free Games Channel",
+        "description": "Choose a channel where the free games will be posted"
+        "value": 901120398047993929
+      },
+      "free_games_role": {
+        "label": "Free Games Role",
+        "description": "Choose a role which will be pinged on new free game posts",
+        "value": 922101074406559815
+      },
+      "free_games_poster_role": {
+        "label": "Free Games Poster",
+        "description": "Choose a Role which is allowed to post new Free Game",
+        "value": 923382010490282025
+      },
+      "embed_color": {
+        "label": "Standard embed Color",
+        "description": "Choose the standard embed color",
+        "value": 7548478
+      }
     }
   },
   "embed_colors": {
