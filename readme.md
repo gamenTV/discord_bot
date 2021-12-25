@@ -1,1 +1,1 @@
-halle welt
+Discord test bot
