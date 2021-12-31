@@ -16,11 +16,13 @@ ConfigFunc = ConfigTool(client)
 async def on_ready():
     await client.change_presence(activity=Game(""))
     free_config = await ConfigFunc.get_config("free_games")
+    free_config_val = free_config["value"]
 
     global FreeGamesFunc
     FreeGamesFunc = FreeGames(client, await ConfigFunc.reload_channel(),
-                              free_config["free_games_role"]["value"],
-                              free_config["embed_color"])
+                              free_config_val["free_games_role"]["value"],
+                              free_config_val["free_games_poster_role"]["value"],
+                              free_config_val["embed_color"]["value"])
     check_for_expired.start()
 
 
@@ -30,8 +32,10 @@ async def setting(ctx):
 
 
 @client.command()
-async def new_game(ctx, titel, start, expires, link, price, color):
-    await FreeGamesFunc.func_create_game(titel, start, expires, link, price, color)
+async def new_game(ctx, titel, start, expires, link, price):
+    color, id = await ConfigFunc.select_color(ctx)
+    color = int(color['value'].replace("#", ""), 16)
+    await FreeGamesFunc.func_create_game(ctx, titel, start, expires, link, price, color)
     await ctx.message.delete()
 
 
