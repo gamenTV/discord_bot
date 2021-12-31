@@ -1,15 +1,48 @@
 {
-  "free_games": {
-    "free_games_channel": 901120398047993929,
-    "free_games_role": 922101074406559815,
-    "free_games_poster_role": 923382010490282025,
-    "embed_color": 7548478
-  },
-  "embed_colors": {
-    "light_blue": 5551315,
-    "dark_red": 7548478,
-    "light_red": 15754587,
-    "orange": 16744456,
-    "light_green": 4563527
-  }
+    "free_games": {
+        "label": "Free Games Config",
+        "description": "Change something for Free Games",
+        "value": {
+            "free_games_channel": {
+                "label": "Free Games Channel",
+                "description": "Choose a channel where the free games will be posted",
+                "value": 901120398047993929,
+                "type": "channel"
+            },
+            "free_games_role": {
+                "label": "Free Games Role",
+                "description": "Choose a role which will be pinged on new free game posts",
+                "value": 922101074406559815,
+                "type": "role"
+            },
+            "free_games_poster_role": {
+                "label": "Free Games Poster",
+                "description": "Choose a Role which is allowed to post new Free Game",
+                "value": 923382010490282025,
+                "type": "role"
+            },
+            "embed_color": {
+                "label": "Standard embed Color",
+                "description": "Choose the standard embed color",
+                "value": "#FF0000",
+                "type": "color"
+            }
+        }
+    },
+    "embed_colors": {
+        "label": "Embed Colors",
+        "description": "Choose some Embed Colors",
+        "value": {
+            "red": {
+                "label": "Red",
+                "value": "FF0000"
+            }
+        }
+    },
+    "manager": {
+        "label": "Manager Role",
+        "description": "User with that role can user the setting Command!",
+        "value": 926191851982168124,
+        "type": "role"
+    }
 }
