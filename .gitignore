@@ -6,3 +6,4 @@
 *.bat
 config/token.json
 *.pyc
+modules/free_games.json
