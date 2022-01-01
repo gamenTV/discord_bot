@@ -1,7 +1,7 @@
-.idea/*
 *.pyc
 .idea/
 *.gpkg*
 *.bak
 /.vscode/
 *.bat
+config/token.json
